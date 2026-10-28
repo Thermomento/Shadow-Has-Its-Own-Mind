@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Shadow Has Its Own Mind</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js"></script>
+<script src="i18n.js"></script>
+<script src="level.js"></script>
+<script src="sketch.js"></script>
+<script src="generator.js"></script>
+</head>
+<body>
+<main class="stage">
+<div class="language-bar"><button id="language" type="button" aria-label="Switch to Chinese">中文</button></div>
+<p class="eyebrow" data-i18n="archive">ANOMALY RECORD / SHADOW ARCHIVE</p>
+<div class="record-tag" aria-hidden="true" data-i18n="tag">STORY 07 / TWO LITTLE SOULS<br>AFTER THE LAST LIGHT</div>
+<div class="storybook-heading">
+<h1><span>The Shadow</span>Has Its Own Mind</h1>
+<svg class="night-vignette" viewBox="0 0 260 155" aria-hidden="true" focusable="false">
+<defs><pattern id="halftone" width="5" height="5" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="currentColor"/></pattern></defs>
+<circle cx="172" cy="64" r="49" fill="url(#halftone)" opacity=".25"/>
+<path d="M178 20a42 42 0 1 0 26 74 37 37 0 0 1-26-74Z" fill="#d9d8c7"/>
+<path d="M29 83c-12-2-15-14-5-19 2-16 26-19 33-5 16-4 30 6 27 17 14-2 19 12 9 16H30Z" fill="#46515a"/>
+<path d="M152 114c-7-10 3-18 11-15 0-15 24-18 29-5 13-6 26 4 23 13 18-2 23 14 12 18h-69Z" fill="#38434d"/>
+<g stroke="#c8c7b6" stroke-width="1" fill="none"><path d="m105 22 3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><path d="m233 48 2 5 5 2-5 2-2 5-2-5-5-2 5-2Z"/></g>
+<path d="M22 151c10-23 18-38 35-51M35 128l-15-12m25-2 2-18m5 10 17-3M224 151c-7-22-14-30-26-35m17 16 15-5m-23-4-2-13" stroke="#778076" stroke-width="2" fill="none"/>
+<g fill="#778076"><path d="m19 113-9-2 7 10 5 2Zm29-17 4-9 2 12-6 3Zm181 29 12-1-10 8-6-2Z"/></g>
+<path d="M0 143Q35 116 75 134T153 132T260 134V155H0Z" fill="#34424a"/>
+<path d="M0 151Q54 133 105 146T207 140T260 146V155H0Z" fill="#192932"/>
+<g fill="#1a2931"><path d="m17 147 4-66 4 66Zm-8-32 14-31 14 31Zm-6 14 20-34 20 34Z"/><path d="m229 147 4-78 4 78Zm-12-40 18-36 16 36Zm-7 20 25-43 25 43Z"/></g>
+<g stroke="#a7ada0" stroke-width="1" fill="none"><path d="M94 148v-36h12m-6 0v7"/><path d="m95 120 10 0 2 15-14 0Z"/></g>
+<path d="M96 123h7v9h-7Z" fill="#dec694"/>
+<g fill="#c5c6b6"><circle cx="69" cy="108" r="1"/><circle cx="128" cy="136" r="1.4"/><circle cx="202" cy="75" r="1"/></g>
+</svg></div>
+<p class="intro" data-i18n="intro">Beyond the last lantern, a little shadow waits. Guide these two small souls through the mirrors and safely home.</p>
+<div class="mode"><span id="mode" aria-live="polite">Generating mode…</span><span id="mapping"></span></div>
+<div class="layout">
+<section id="play-area" aria-label="Puzzle area">
+<div class="board-stage">
+<div class="stage-corner corner-left" aria-hidden="true">✦</div><div class="stage-corner corner-right" aria-hidden="true">✧</div><div id="game" aria-label="7 by 5 shadow puzzle board"></div>
+
+<div id="mirror-axis" aria-hidden="true" data-mode="A"></div>
+<div id="victory" role="status" hidden>
+<div class="sync-mark" aria-hidden="true"><span></span><span></span></div>
+<p class="eyebrow" data-i18n="verified">RECORD VERIFIED</p>
+<strong data-i18n="synced">Synchronization complete.</strong>
+<p data-i18n="victoryText">Both figures have reached their destinations.<br>This anomaly is recorded. Another file awaits.</p>
+<button id="next" type="button" class="primary" data-i18n="next">Next puzzle →</button>
+</div></div>
+<p id="position">Generating positions…</p>
+<p id="feedback" role="status">Checking a new puzzle…</p>
+<div class="actions"><button id="reset" type="button" data-i18n="reset">↺ Reset puzzle</button><button id="refresh" type="button" data-i18n="refresh">⟳ New puzzle</button></div>
+</section>
+<aside>
+<h2 data-i18n="cast">Subjects</h2>
+<div class="legend"><p class="person" data-i18n="personLegend">● Red figure / Player</p><p class="shadow" data-i18n="shadowLegend">◒ Black silhouette / Shadow</p><p class="person" data-i18n="playerLegend">⌂ Cottage door: player goal</p><p class="shadow" data-i18n="shadowGoalLegend">☾ Moon mirror: shadow goal</p><p data-i18n="wallLegend">Hatched blocks: walls</p></div>
+<h2 data-i18n="controls">Controls</h2>
+<p data-i18n="moveHelp"><kbd>↑ ↓ ← →</kbd><br>or <kbd>W A S D</kbd> to move one cell</p>
+<p data-i18n="switchHelp"><kbd>Space</kbd> to switch mirror mode</p>
+<p data-i18n="blockedHelp">Blocked actions leave the state unchanged. The wall briefly shows ×.</p>
+<p id="objective">Generating start and goals…</p>
+</aside>
+</div>
+<footer data-i18n="footer">THE SHADOW HAS ITS OWN MIND · 7 × 5<br>Reset keeps this puzzle · New puzzle changes the layout · Internet required for p5.js</footer>
+</main>
+</body>
+</html>
