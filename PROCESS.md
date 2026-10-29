@@ -90,3 +90,11 @@ This English process document was translated and saved with Codex assistance fro
 Development included code checks for mapping results, rejected collisions, mode switching, victory detection, reset, puzzle changes and language switching, as well as batch verification of random puzzles. Automated checks and actual playtesting provide different kinds of evidence: the former checks rule correctness, while the latter helps assess whether the experience is enjoyable and appropriately challenging.
 
 For now, I want to retain a small but complete scope. A larger map or additional rules could be explored later, but they should be introduced gradually and assessed through further verification and playtesting to determine whether they actually improve the experience.
+
+## Deployment
+
+The project was deployed to Cloudflare Pages using its GitHub integration.
+The site serves the existing HTML, CSS and JavaScript without a build step.
+Future changes pushed to the main branch trigger automatic deployments.
+
+Live URL: https://shadow-has-its-own-mind.pages.dev/
