@@ -1,6 +1,5 @@
 # The Shadow Has Its Own Mind
-
-A small browser puzzle for **Assignment 3: An interactive experience**. Intended for players who enjoy short, quiet spatial puzzles, it asks a simple question: how do you guide someone whose shadow follows a different direction?
+A small browser puzzle for players who enjoy short, quiet spatial puzzles. Players move the character and toggle shadow reflection modes. Each action produces visible state feedback. Players observe the layout, respond to hints, and adjust their strategy to guide the character and shadow to their separate goals simultaneously.
 
 Move a hooded figure through a 7 × 5 board. Its shadow is calculated from the figure's position and mirror mode. Bring the player to the cottage door and the shadow to the moon mirror **at the same time**.
 
@@ -57,7 +56,7 @@ Coordinates begin at `(0,0)` in the upper-left corner and end at `(6,4)` in the 
 
 `keyPressed()` builds a candidate player position and mode. `getShadowPosition()` derives the shadow; `checkState()` checks both subjects. Only a valid candidate replaces the current state. `checkWin()` tests the two goals. The canvas, position/mode text, rejection message or completion panel then tells the player what happened.
 
-This is the main code connection to explain for the assignment. The shadow never has its own independently movable state.
+This is the main code connection to explain. The shadow never has its own independently movable state.
 
 ## Puzzle generation and verification
 
