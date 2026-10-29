@@ -9,7 +9,12 @@ Move a hooded figure through a 7 × 5 board. Its shadow is calculated from the f
 
 ## Play online
 
-[Open the public game](https://the-shadow-has-its-own-mind-puzzle.grassycup32769.chatgpt.site) — hosted with Sites. Deployment succeeded and public access was enabled on 29 October 2026. Desktop keyboard recommended. p5.js still loads from its CDN.
+[Play The Shadow Has Its Own Mind](https://shadow-has-its-own-mind.pages.dev/)
+
+Hosted on Cloudflare Pages. Use a desktop browser and keyboard.
+Internet access is required to load p5.js.
+
+The site is connected to this GitHub repository. Changes pushed to the main branch are automatically deployed by Cloudflare Pages.
 
 ## Run locally
 
